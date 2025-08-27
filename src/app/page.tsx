@@ -70,6 +70,7 @@ export default function AgrilogyLanding() {
               src="/img/logo_Plan de travail 1.png"
               alt="Agrilogy Logo"
               h="50px"
+              w="auto"
             />
 
             <HStack spacing={8} display={{ base: "none", md: "flex" }}>
@@ -142,20 +143,20 @@ export default function AgrilogyLanding() {
         >
           <VStack spacing={4} textAlign="center" color="white">
             <Heading size="2xl" textShadow="2px 2px 4px rgba(0,0,0,0.5)">
-              Welcome to AgriLogy
+              Welcome to Agrogo
             </Heading>
             <Text
               fontSize="xl"
               maxW="600px"
               textShadow="1px 1px 2px rgba(0,0,0,0.5)"
             >
-              Smart irrigation solutions for modern agriculture
+              Smart solutions for modern agriculture
             </Text>
-            <Button colorScheme="green" size="lg" mt={4}>
-              <Link href="#about" _hover={{ color: "green.600" }}>
+            <Link href="#about" _hover={{ color: "green.600" }}>
+              <Button colorScheme="green" size="lg" mt={4}>
                 Learn More
-              </Link>
-            </Button>
+              </Button>
+            </Link>
           </VStack>
         </Box>
       </Box>
@@ -170,7 +171,7 @@ export default function AgrilogyLanding() {
 
             <Text fontSize="lg" lineHeight="tall">
               <Text as="span" fontWeight="bold" color="green.600">
-                AgriLogy
+                Agrogo
               </Text>{" "}
               is a leading technology company specializing in the development of
               smart, integrated solutions that combine Internet of Things (IoT),
@@ -385,7 +386,7 @@ export default function AgrilogyLanding() {
                   src="/img/image 5.png"
                   alt="Agrilogy Mini"
                   borderTopRadius="md"
-                  maxH="600px"
+                  height="500px"
                 />
                 <CardBody>
                   <VStack align="start" spacing={4}>
@@ -414,7 +415,8 @@ export default function AgrilogyLanding() {
                   src="/img/image 6.png"
                   alt="Agrilogy Pro"
                   borderTopRadius="md"
-                  maxH="600px"
+                  height="500px"
+                  objectFit="fill"
                 />
                 <CardBody>
                   <VStack align="start" spacing={4}>
@@ -824,9 +826,7 @@ export default function AgrilogyLanding() {
                   to know farm water needs precisely, helping optimize
                   irrigation schedules and resource management.
                 </Text>
-                <Text fontWeight="semibold" color="green.600">
-                  Some Photos:
-                </Text>
+                <Text fontWeight="semibold" color="green.600"></Text>
                 <Image
                   src="/img/image 8.jpg"
                   alt="Weather Station"
@@ -849,9 +849,7 @@ export default function AgrilogyLanding() {
                   <strong>Features:</strong> Better management of water and
                   effective management of fertilizers.
                 </Text>
-                <Text fontWeight="semibold" color="green.600">
-                  Some Photos:
-                </Text>
+                <Text fontWeight="semibold" color="green.600"></Text>
                 <Image src="/img/image 7.jpg" alt="Sensors" borderRadius="md" />
               </VStack>
             </SimpleGrid>
@@ -887,7 +885,7 @@ export default function AgrilogyLanding() {
 
             <HStack spacing={4}>
               <Link
-                href="https://web.facebook.com/p/AgriLogy-100087042591029/"
+                href="https://www.facebook.com/p/Agrogo-%D8%AF%D8%B1%D8%A7%D8%B3%D8%A9-%D9%88%D8%A5%D9%86%D8%AC%D8%A7%D8%B2-%D9%85%D8%B4%D8%A7%D8%B1%D9%8A%D8%B9-%D8%A7%D9%84%D8%B3%D9%82%D9%8A-%D8%A7%D9%84%D8%B0%D9%83%D9%8A-%D9%88%D8%A7%D9%84%D8%B7%D8%A7%D9%82%D8%A9-%D8%A7%D9%84%D8%B4%D9%85%D8%B3%D9%8A%D8%A9-100092259103519/"
                 isExternal
               >
                 <Icon
@@ -908,10 +906,7 @@ export default function AgrilogyLanding() {
                   _hover={{ color: "green.300" }}
                 />
               </Link>
-              <Link
-                href="https://wa.me/message/PGWD3K6AFXWXO1?src=qr"
-                isExternal
-              >
+              <Link href="https://wa.me/212763938935" isExternal>
                 <Icon
                   as={FaWhatsapp}
                   boxSize={6}

@@ -19,7 +19,7 @@ export default function ContactSection() {
 
     setLoading(true);
     try {
-      const serviceId = "service_3ctqudu";
+      const serviceId = "service_e0j42vj";
       const templateId = "template_5r9jmuj";
       const publicKey = "TrQFyZbU7gtk2iEzq";
 
@@ -27,9 +27,10 @@ export default function ContactSection() {
       await emailjs.sendForm(serviceId, templateId, formRef.current, { publicKey });
 
       formRef.current.reset();
-      toast({ title: "Message sent ✅", status: "success", duration: 4000 });
+      toast({ title: "Email sent successfully ✅", status: "success", duration: 4000 });
     } catch (err) {
-      toast({ title: "Failed to send", description: String(err), status: "error", duration: 5000 });
+      // toast({ title: "Failed to send the email", description: String(err), status: "error", duration: 5000 });
+      toast({ title: "Failed to send the email", description: "Oops there was an error sending the email please contact us at contact.agrilogy@gmail.com", status: "error", duration: 5000 });
     } finally {
       setLoading(false);
     }
