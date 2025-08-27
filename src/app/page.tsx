@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import {
   Box,
@@ -15,19 +15,16 @@ import {
   VStack,
   HStack,
   Icon,
-  FormControl,
-  FormLabel,
-  Input,
-  Textarea,
   useColorMode,
   useColorModeValue,
   IconButton,
   Link,
   Badge,
-  Stack,
-} from "@chakra-ui/react"
+  List,
+  ListItem,
+  ListIcon,
+} from "@chakra-ui/react";
 import {
-  FaHandshake,
   FaWrench,
   FaBuilding,
   FaSun,
@@ -37,24 +34,43 @@ import {
   FaWhatsapp,
   FaLinkedin,
   FaCheck,
-} from "react-icons/fa"
+  FaCog,
+  FaMicrochip,
+  FaCube,
+  FaMobile,
+  FaWifi,
+  FaLeaf,
+  FaChartLine,
+  FaBell,
+  FaWater,
+} from "react-icons/fa";
+import ContactSection from "./components/ContactSection";
 
 export default function AgrilogyLanding() {
-  const { colorMode, toggleColorMode } = useColorMode()
+  const { colorMode, toggleColorMode } = useColorMode();
 
   // Color mode values
-  const bgColor = useColorModeValue("white", "gray.900")
-  const textColor = useColorModeValue("gray.800", "white")
-  const cardBg = useColorModeValue("white", "gray.800")
-  const borderColor = useColorModeValue("gray.200", "gray.700")
+  const bgColor = useColorModeValue("white", "gray.900");
+  const textColor = useColorModeValue("gray.800", "white");
+  const cardBg = useColorModeValue("white", "gray.800");
+  const borderColor = useColorModeValue("gray.200", "gray.700");
 
   return (
     <Box bg={bgColor} color={textColor} minH="100vh">
       {/* Header */}
-      <Box as="header" bg={useColorModeValue("green.50", "gray.800")} borderBottom="1px" borderColor={borderColor}>
+      <Box
+        as="header"
+        bg={useColorModeValue("green.50", "gray.800")}
+        borderBottom="1px"
+        borderColor={borderColor}
+      >
         <Container maxW="7xl" py={4}>
           <Flex justify="space-between" align="center">
-            <Image src="/img/logo_Plan de travail 1.png" alt="Agrilogy Logo" h="50px" />
+            <Image
+              src="/img/logo_Plan de travail 1.png"
+              alt="Agrilogy Logo"
+              h="50px"
+            />
 
             <HStack spacing={8} display={{ base: "none", md: "flex" }}>
               <Link href="#home" color="green.600" fontWeight="semibold">
@@ -68,6 +84,12 @@ export default function AgrilogyLanding() {
               </Link>
               <Link href="#products" _hover={{ color: "green.600" }}>
                 Products
+              </Link>
+              <Link href="#platform" _hover={{ color: "green.600" }}>
+                Platform
+              </Link>
+              <Link href="#industry" _hover={{ color: "green.600" }}>
+                Industry 4.0
               </Link>
               <Link href="#equipment" _hover={{ color: "green.600" }}>
                 Equipment
@@ -85,7 +107,12 @@ export default function AgrilogyLanding() {
                 variant="ghost"
                 color="green.600"
               />
-              <Button size="sm" leftIcon={<Image src="/img/mamoroccoflag_111704.png" w="20px" />}>
+              <Button
+                size="sm"
+                leftIcon={
+                  <Image src="/img/mamoroccoflag_111704.png" w="20px" />
+                }
+              >
                 MA
               </Button>
             </HStack>
@@ -95,7 +122,13 @@ export default function AgrilogyLanding() {
 
       {/* Hero Section */}
       <Box id="home" position="relative" h="60vh" overflow="hidden">
-        <Image src="/img/Picture1.jpg" alt="Agricultural landscape" w="100%" h="100%" objectFit="cover" />
+        <Image
+          src="/img/Picture1.jpg"
+          alt="Agricultural landscape"
+          w="100%"
+          h="100%"
+          objectFit="cover"
+        />
         <Box
           position="absolute"
           top="0"
@@ -111,11 +144,17 @@ export default function AgrilogyLanding() {
             <Heading size="2xl" textShadow="2px 2px 4px rgba(0,0,0,0.5)">
               Welcome to AgriLogy
             </Heading>
-            <Text fontSize="xl" maxW="600px" textShadow="1px 1px 2px rgba(0,0,0,0.5)">
+            <Text
+              fontSize="xl"
+              maxW="600px"
+              textShadow="1px 1px 2px rgba(0,0,0,0.5)"
+            >
               Smart irrigation solutions for modern agriculture
             </Text>
             <Button colorScheme="green" size="lg" mt={4}>
-              Learn More
+              <Link href="#about" _hover={{ color: "green.600" }}>
+                Learn More
+              </Link>
             </Button>
           </VStack>
         </Box>
@@ -133,9 +172,15 @@ export default function AgrilogyLanding() {
               <Text as="span" fontWeight="bold" color="green.600">
                 AgriLogy
               </Text>{" "}
-              is a company specializing in the agricultural field, especially irrigation services and products. We help
-              farmers and gardeners to irrigate and monitor their crops with fewer resources and efforts, with higher
-              yields.
+              is a leading technology company specializing in the development of
+              smart, integrated solutions that combine Internet of Things (IoT),
+              electromechanical systems, and web and mobile applications to
+              address critical challenges in key sectors such as agriculture,
+              water management, energy, and the environment. At AGROGO, we merge
+              engineering, software development, and environmental innovation to
+              deliver modern products and services that help individuals and
+              organizations improve operational efficiency and make data-driven
+              decisions.
             </Text>
 
             <SimpleGrid columns={{ base: 1, md: 2 }} spacing={8} w="100%">
@@ -149,7 +194,10 @@ export default function AgrilogyLanding() {
                   <VStack align="start" spacing={3}>
                     <HStack>
                       <Icon as={FaCheck} color="green.500" />
-                      <Text>Smart irrigation and watering system based on IoT technology</Text>
+                      <Text>
+                        Smart irrigation and watering system based on IoT
+                        technology
+                      </Text>
                     </HStack>
                     <HStack>
                       <Icon as={FaCheck} color="green.500" />
@@ -169,11 +217,15 @@ export default function AgrilogyLanding() {
                   <VStack align="start" spacing={3}>
                     <HStack>
                       <Icon as={FaCheck} color="green.500" />
-                      <Text>Maintenance and installation of smart irrigation (IoT)</Text>
+                      <Text>
+                        Maintenance and installation of smart irrigation (IoT)
+                      </Text>
                     </HStack>
                     <HStack>
                       <Icon as={FaCheck} color="green.500" />
-                      <Text>Installation and maintenance of solar pumping system</Text>
+                      <Text>
+                        Installation and maintenance of solar pumping system
+                      </Text>
                     </HStack>
                   </VStack>
                 </CardBody>
@@ -191,42 +243,81 @@ export default function AgrilogyLanding() {
               Our Services
             </Heading>
 
-            <SimpleGrid columns={{ base: 1, md: 3 }} spacing={8}>
-              <Card bg={cardBg} borderColor="green.200" borderWidth="1px" textAlign="center">
+            <SimpleGrid columns={{ base: 1, md: 2, lg: 4 }} spacing={8}>
+              <Card
+                bg={cardBg}
+                borderColor="green.200"
+                borderWidth="1px"
+                textAlign="center"
+              >
                 <CardBody>
                   <VStack spacing={4}>
-                    <Icon as={FaHandshake} boxSize={12} color="green.500" />
+                    <Icon as={FaLeaf} boxSize={12} color="green.500" />
                     <Heading size="md" color="green.600">
-                      SolariTech
+                      Studies & Sustainable Solutions
                     </Heading>
-                    <Text>Maintenance and installation of smart irrigation system and solar pumping system.</Text>
-                    <Image src="/img/image2.png" alt="SolariTech" borderRadius="md" width={80} height={120} objectFit="cover"  />
+                    <Text fontSize="sm">
+                      Agricultural projects: irrigation, production, solar
+                      energy
+                    </Text>
                   </VStack>
                 </CardBody>
               </Card>
 
-              <Card bg={cardBg} borderColor="green.200" borderWidth="1px" textAlign="center">
+              <Card
+                bg={cardBg}
+                borderColor="green.200"
+                borderWidth="1px"
+                textAlign="center"
+              >
                 <CardBody>
                   <VStack spacing={4}>
                     <Icon as={FaWrench} boxSize={12} color="green.500" />
                     <Heading size="md" color="green.600">
-                      AgriTech
+                      Installation Services
                     </Heading>
-                    <Text>Precision agriculture, robotics and automation (IoT).</Text>
-                    <Image src="/img/image 3.png" alt="AgriTech" borderRadius="md" width={80} height={120} objectFit="cover"  />
+                    <Text fontSize="sm">
+                      Irrigation systems, solar pumping solutions, and IoT
+                      integration
+                    </Text>
                   </VStack>
                 </CardBody>
               </Card>
 
-              <Card bg={cardBg} borderColor="green.200" borderWidth="1px" textAlign="center">
+              <Card
+                bg={cardBg}
+                borderColor="green.200"
+                borderWidth="1px"
+                textAlign="center"
+              >
+                <CardBody>
+                  <VStack spacing={4}>
+                    <Icon as={FaChartLine} boxSize={12} color="green.500" />
+                    <Heading size="md" color="green.600">
+                      Precision Agriculture
+                    </Heading>
+                    <Text fontSize="sm">
+                      Advanced farming techniques using IoT and data analytics
+                    </Text>
+                  </VStack>
+                </CardBody>
+              </Card>
+
+              <Card
+                bg={cardBg}
+                borderColor="green.200"
+                borderWidth="1px"
+                textAlign="center"
+              >
                 <CardBody>
                   <VStack spacing={4}>
                     <Icon as={FaBuilding} boxSize={12} color="green.500" />
                     <Heading size="md" color="green.600">
-                      Solar Pumping
+                      Green Spaces Management
                     </Heading>
-                    <Text>Efficient solar-powered water pumping solutions for sustainable agriculture.</Text>
-                    <Image src="/img/image 4.png" alt="Solar Pumping" borderRadius="md" width={80} height={120} objectFit="cover"  />
+                    <Text fontSize="sm">
+                      Comprehensive management solutions for green spaces
+                    </Text>
                   </VStack>
                 </CardBody>
               </Card>
@@ -243,28 +334,75 @@ export default function AgrilogyLanding() {
               Products
             </Heading>
 
-            <Text fontSize="lg" textAlign="center" maxW="4xl">
-              Our main products objective are to reduce water consumption and protect crops from heat waves and other
-              extreme weather conditions and give the farmer the ability to monitor and control the irrigation process
-              in the easiest way based on the latest{" "}
-              <Text as="span" color="green.600" fontWeight="semibold">
-                technologies such as precision irrigation.
-              </Text>
-            </Text>
+            <SimpleGrid columns={{ base: 1, md: 3 }} spacing={8} mb={12}>
+              <Card bg={cardBg} borderColor="green.200" borderWidth="1px">
+                <CardBody textAlign="center">
+                  <VStack spacing={4}>
+                    <Icon as={FaWifi} boxSize={12} color="green.500" />
+                    <Heading size="md" color="green.600">
+                      IoT Sensors
+                    </Heading>
+                    <Text>
+                      Weather stations, soil sensors, and environmental
+                      monitoring devices
+                    </Text>
+                  </VStack>
+                </CardBody>
+              </Card>
+
+              <Card bg={cardBg} borderColor="green.200" borderWidth="1px">
+                <CardBody textAlign="center">
+                  <VStack spacing={4}>
+                    <Icon as={FaCog} boxSize={12} color="green.500" />
+                    <Heading size="md" color="green.600">
+                      Irrigation Controllers
+                    </Heading>
+                    <Text>
+                      Smart controllers for automated irrigation management
+                    </Text>
+                  </VStack>
+                </CardBody>
+              </Card>
+
+              <Card bg={cardBg} borderColor="green.200" borderWidth="1px">
+                <CardBody textAlign="center">
+                  <VStack spacing={4}>
+                    <Icon as={FaMobile} boxSize={12} color="green.500" />
+                    <Heading size="md" color="green.600">
+                      Smart Farming Web App
+                    </Heading>
+                    <Text>
+                      Comprehensive web application for farm management
+                    </Text>
+                  </VStack>
+                </CardBody>
+              </Card>
+            </SimpleGrid>
 
             <SimpleGrid columns={{ base: 1, md: 2 }} spacing={8}>
               <Card bg={cardBg} borderColor="green.200" borderWidth="1px">
-                <Image src="/img/image 5.png" alt="Agrilogy Mini" borderTopRadius="md"  maxH="600px"/>
+                <Image
+                  src="/img/image 5.png"
+                  alt="Agrilogy Mini"
+                  borderTopRadius="md"
+                  maxH="600px"
+                />
                 <CardBody>
                   <VStack align="start" spacing={4}>
                     <Badge colorScheme="green" fontSize="sm">
                       Agrilogy Mini
                     </Badge>
                     <Text>
-                      An irrigation device installed in the garden and linked with a mobile application, allowing you to
-                      control and monitor the irrigation process remotely.
+                      An irrigation device installed in the garden and linked
+                      with a mobile application, allowing you to control and
+                      monitor the irrigation process remotely.
                     </Text>
-                    <Button colorScheme="green" variant="outline" as="a" href="#contact">
+                    <Button
+                      colorScheme="green"
+                      variant="outline"
+                      as="a"
+                      href="#contact"
+                    >
                       Contact Us
                     </Button>
                   </VStack>
@@ -272,33 +410,393 @@ export default function AgrilogyLanding() {
               </Card>
 
               <Card bg={cardBg} borderColor="green.200" borderWidth="1px">
-                <Image src="/img/image 6.png" alt="Agrilogy Pro" borderTopRadius="md" maxH="600px" />
+                <Image
+                  src="/img/image 6.png"
+                  alt="Agrilogy Pro"
+                  borderTopRadius="md"
+                  maxH="600px"
+                />
                 <CardBody>
                   <VStack align="start" spacing={4}>
                     <Badge colorScheme="green" fontSize="sm">
                       Agrilogy Pro
                     </Badge>
                     <Text>
-                      An irrigation device installed in farms, allowing farmers through mobile or laptop application to
-                      get:
+                      An irrigation device installed in farms, allowing farmers
+                      through mobile or laptop application to get:
                     </Text>
                     <VStack align="start" spacing={2} fontSize="sm">
                       <Text>
-                        <strong>1. Irrigation Schedules:</strong> Gives irrigation schedules, saving water while keeping
-                        crops healthier.
+                        <strong>1. Irrigation Schedules:</strong> Gives
+                        irrigation schedules, saving water while keeping crops
+                        healthier.
                       </Text>
                       <Text>
-                        <strong>2. Conserve & Connect:</strong> Optimizes water use to reduce needless waste.
+                        <strong>2. Conserve & Connect:</strong> Optimizes water
+                        use to reduce needless waste.
                       </Text>
                       <Text>
-                        <strong>3. Control From Anywhere:</strong> Control watering from anywhere with the easy-to-use
-                        app.
+                        <strong>3. Control From Anywhere:</strong> Control
+                        watering from anywhere with the easy-to-use app.
                       </Text>
                     </VStack>
-                    <Button colorScheme="green" variant="outline" as="a" href="#contact">
+                    <Button
+                      colorScheme="green"
+                      variant="outline"
+                      as="a"
+                      href="#contact"
+                    >
                       Contact Us
                     </Button>
                   </VStack>
+                </CardBody>
+              </Card>
+            </SimpleGrid>
+          </VStack>
+        </Container>
+      </Box>
+
+      {/* Agrilogy Platform Section */}
+      <Box id="platform" py={20}>
+        <Container maxW="6xl">
+          <VStack spacing={12}>
+            <Heading size="xl" color="green.600" textAlign="center">
+              Agrilogy Platform
+            </Heading>
+
+            <Text fontSize="lg" textAlign="center" maxW="4xl">
+              Agrilogy platform is a smart web application for irrigation and
+              fertilization management. It collects sensor data and transforms
+              it into accurate indicators to support better decision-making.
+            </Text>
+
+            <SimpleGrid columns={{ base: 1, md: 2 }} spacing={8}>
+              <Card bg={cardBg} borderColor="green.200" borderWidth="1px">
+                <CardHeader>
+                  <Heading size="md" color="green.600">
+                    Key Features
+                  </Heading>
+                </CardHeader>
+                <CardBody>
+                  <VStack align="start" spacing={3}>
+                    <HStack>
+                      <Icon as={FaChartLine} color="green.500" />
+                      <Text>
+                        Real-time monitoring of soil and climate conditions
+                      </Text>
+                    </HStack>
+                    <HStack>
+                      <Icon as={FaWater} color="green.500" />
+                      <Text>
+                        Scheduling and management of irrigation and
+                        fertilization based on scientific standards
+                      </Text>
+                    </HStack>
+                    <HStack>
+                      <Icon as={FaBell} color="green.500" />
+                      <Text>
+                        Smart alerts when action is needed or risks are detected
+                      </Text>
+                    </HStack>
+                    <HStack>
+                      <Icon as={FaCog} color="green.500" />
+                      <Text>
+                        Remote control of pumps and irrigation systems
+                      </Text>
+                    </HStack>
+                  </VStack>
+                </CardBody>
+              </Card>
+
+              <Card bg={cardBg} borderColor="green.200" borderWidth="1px">
+                <CardHeader>
+                  <Heading size="md" color="green.600">
+                    Benefits
+                  </Heading>
+                </CardHeader>
+                <CardBody>
+                  <VStack align="start" spacing={3}>
+                    <Text>
+                      <strong>Water and fertilizer consumption analysis</strong>{" "}
+                      to improve efficiency and reduce costs.
+                    </Text>
+                    <Text>
+                      With the integration of{" "}
+                      <Text as="span" color="green.600" fontWeight="semibold">
+                        IoT and Artificial Intelligence
+                      </Text>
+                      , we help you achieve more productive and sustainable
+                      farming.
+                    </Text>
+                  </VStack>
+                </CardBody>
+              </Card>
+            </SimpleGrid>
+          </VStack>
+        </Container>
+      </Box>
+
+      {/* Industry 4.0 Section */}
+      <Box id="industry" py={20} bg={useColorModeValue("gray.50", "gray.800")}>
+        <Container maxW="6xl">
+          <VStack spacing={12}>
+            <Heading size="xl" color="green.600" textAlign="center">
+              Industry 4.0 Expertise
+            </Heading>
+
+            <Text fontSize="lg" textAlign="center" maxW="4xl">
+              We are committed to supporting you at every stage of your project,
+              from study and design to manufacturing and implementation. With
+              our multidisciplinary expertise, we develop advanced, functional
+              prototypes that integrate cutting-edge technologies, customized to
+              meet your specific needs.
+            </Text>
+
+            <SimpleGrid columns={{ base: 1, md: 2 }} spacing={6} mb={8}>
+              <Card
+                bg={cardBg}
+                borderColor="green.200"
+                borderWidth="1px"
+                textAlign="center"
+              >
+                <CardBody>
+                  <VStack spacing={4}>
+                    <Icon as={FaLeaf} boxSize={10} color="green.500" />
+                    <Heading size="md" color="green.600">
+                      Study & Design
+                    </Heading>
+                    <Text>
+                      Comprehensive project analysis and innovative design
+                      solutions
+                    </Text>
+                  </VStack>
+                </CardBody>
+              </Card>
+
+              <Card
+                bg={cardBg}
+                borderColor="green.200"
+                borderWidth="1px"
+                textAlign="center"
+              >
+                <CardBody>
+                  <VStack spacing={4}>
+                    <Icon as={FaCog} boxSize={10} color="green.500" />
+                    <Heading size="md" color="green.600">
+                      Creation & Adaptation
+                    </Heading>
+                    <Text>
+                      Custom manufacturing and tailored implementation
+                    </Text>
+                  </VStack>
+                </CardBody>
+              </Card>
+            </SimpleGrid>
+
+            <Text
+              fontSize="lg"
+              textAlign="center"
+              color="green.600"
+              fontWeight="semibold"
+              mb={8}
+            >
+              At Agrogo, our team unites diverse expertise to deliver
+              innovative, tailored solutions for your needs.
+            </Text>
+
+            <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={6}>
+              <Card bg={cardBg} borderColor="green.200" borderWidth="1px">
+                <CardHeader>
+                  <HStack>
+                    <Icon as={FaMicrochip} color="green.500" />
+                    <Heading size="md" color="green.600">
+                      Electronics
+                    </Heading>
+                  </HStack>
+                </CardHeader>
+                <CardBody>
+                  <List spacing={2}>
+                    <ListItem>
+                      <ListIcon as={FaCheck} color="green.500" />
+                      PCB design
+                    </ListItem>
+                    <ListItem>
+                      <ListIcon as={FaCheck} color="green.500" />
+                      PCB printing
+                    </ListItem>
+                    <ListItem>
+                      <ListIcon as={FaCheck} color="green.500" />
+                      Component placement
+                    </ListItem>
+                    <ListItem>
+                      <ListIcon as={FaCheck} color="green.500" />
+                      Testing & validation
+                    </ListItem>
+                  </List>
+                </CardBody>
+              </Card>
+
+              <Card bg={cardBg} borderColor="green.200" borderWidth="1px">
+                <CardHeader>
+                  <HStack>
+                    <Icon as={FaCog} color="green.500" />
+                    <Heading size="md" color="green.600">
+                      Automation
+                    </Heading>
+                  </HStack>
+                </CardHeader>
+                <CardBody>
+                  <List spacing={2}>
+                    <ListItem>
+                      <ListIcon as={FaCheck} color="green.500" />
+                      Integration of PLCs
+                    </ListItem>
+                    <ListItem>
+                      <ListIcon as={FaCheck} color="green.500" />
+                      PLC repair
+                    </ListItem>
+                    <ListItem>
+                      <ListIcon as={FaCheck} color="green.500" />
+                      Preventive maintenance
+                    </ListItem>
+                  </List>
+                </CardBody>
+              </Card>
+
+              <Card bg={cardBg} borderColor="green.200" borderWidth="1px">
+                <CardHeader>
+                  <HStack>
+                    <Icon as={FaCube} color="green.500" />
+                    <Heading size="md" color="green.600">
+                      3D Design & Printing
+                    </Heading>
+                  </HStack>
+                </CardHeader>
+                <CardBody>
+                  <List spacing={2}>
+                    <ListItem>
+                      <ListIcon as={FaCheck} color="green.500" />
+                      3D modeling
+                    </ListItem>
+                    <ListItem>
+                      <ListIcon as={FaCheck} color="green.500" />
+                      3D design
+                    </ListItem>
+                    <ListItem>
+                      <ListIcon as={FaCheck} color="green.500" />
+                      Model prototyping
+                    </ListItem>
+                    <ListItem>
+                      <ListIcon as={FaCheck} color="green.500" />
+                      3D simulation
+                    </ListItem>
+                    <ListItem>
+                      <ListIcon as={FaCheck} color="green.500" />
+                      High-quality 3D printing
+                    </ListItem>
+                  </List>
+                </CardBody>
+              </Card>
+
+              <Card bg={cardBg} borderColor="green.200" borderWidth="1px">
+                <CardHeader>
+                  <HStack>
+                    <Icon as={FaWrench} color="green.500" />
+                    <Heading size="md" color="green.600">
+                      Machining
+                    </Heading>
+                  </HStack>
+                </CardHeader>
+                <CardBody>
+                  <List spacing={2}>
+                    <ListItem>
+                      <ListIcon as={FaCheck} color="green.500" />
+                      Precision machining of custom parts
+                    </ListItem>
+                    <ListItem>
+                      <ListIcon as={FaCheck} color="green.500" />
+                      High-quality component manufacturing
+                    </ListItem>
+                  </List>
+                </CardBody>
+              </Card>
+
+              <Card bg={cardBg} borderColor="green.200" borderWidth="1px">
+                <CardHeader>
+                  <HStack>
+                    <Icon as={FaMobile} color="green.500" />
+                    <Heading size="md" color="green.600">
+                      App Development
+                    </Heading>
+                  </HStack>
+                </CardHeader>
+                <CardBody>
+                  <List spacing={2}>
+                    <ListItem>
+                      <ListIcon as={FaCheck} color="green.500" />
+                      Mobile app & web development
+                    </ListItem>
+                    <ListItem>
+                      <ListIcon as={FaCheck} color="green.500" />
+                      IT infrastructure
+                    </ListItem>
+                    <ListItem>
+                      <ListIcon as={FaCheck} color="green.500" />
+                      System integration
+                    </ListItem>
+                    <ListItem>
+                      <ListIcon as={FaCheck} color="green.500" />
+                      Embedded systems
+                    </ListItem>
+                  </List>
+                </CardBody>
+              </Card>
+
+              <Card
+                bg={cardBg}
+                borderColor="green.200"
+                borderWidth="1px"
+                gridColumn={{ base: "1", lg: "1 / -1" }}
+              >
+                <CardHeader>
+                  <HStack>
+                    <Icon as={FaWifi} color="green.500" />
+                    <Heading size="md" color="green.600">
+                      IoT Systems
+                    </Heading>
+                  </HStack>
+                </CardHeader>
+                <CardBody>
+                  <SimpleGrid columns={{ base: 1, md: 2 }} spacing={4}>
+                    <List spacing={2}>
+                      <ListItem>
+                        <ListIcon as={FaCheck} color="green.500" />
+                        Design and deployment of IoT-based solutions
+                      </ListItem>
+                      <ListItem>
+                        <ListIcon as={FaCheck} color="green.500" />
+                        Integration of sensors and actuators
+                      </ListItem>
+                      <ListItem>
+                        <ListIcon as={FaCheck} color="green.500" />
+                        Wired & Wireless data communication
+                      </ListItem>
+                    </List>
+                    <List spacing={2}>
+                      <ListItem>
+                        <ListIcon as={FaCheck} color="green.500" />
+                        Real-time monitoring and control
+                      </ListItem>
+                      <ListItem>
+                        <ListIcon as={FaCheck} color="green.500" />
+                        Cloud connectivity and dashboards
+                      </ListItem>
+                      <ListItem>
+                        <ListIcon as={FaCheck} color="green.500" />
+                        Maintenance and troubleshooting of IoT networks
+                      </ListItem>
+                    </List>
+                  </SimpleGrid>
                 </CardBody>
               </Card>
             </SimpleGrid>
@@ -317,29 +815,39 @@ export default function AgrilogyLanding() {
             <SimpleGrid columns={{ base: 1, md: 2 }} spacing={12}>
               <VStack align="start" spacing={6}>
                 <Heading size="md" color="green.600">
-                  Enhancing Water Management in Agriculture with AGRILOGY Weather Stations
+                  Enhancing Water Management in Agriculture with AGRILOGY
+                  Weather Stations
                 </Heading>
                 <Text>
-                  Because of climate change in agriculture, we need to know how much water plants need. The AGRILOGY
-                  weather stations allow us to know farm water needs precisely, helping optimize irrigation schedules
-                  and resource management.
+                  Because of climate change in agriculture, we need to know how
+                  much water plants need. The AGRILOGY weather stations allow us
+                  to know farm water needs precisely, helping optimize
+                  irrigation schedules and resource management.
                 </Text>
                 <Text fontWeight="semibold" color="green.600">
                   Some Photos:
                 </Text>
-                <Image src="/img/image 8.jpg" alt="Weather Station" borderRadius="md" />
+                <Image
+                  src="/img/image 8.jpg"
+                  alt="Weather Station"
+                  borderRadius="md"
+                />
               </VStack>
 
               <VStack align="start" spacing={6}>
                 <Heading size="md" color="green.600">
-                  Optimizing Irrigation Processes and Resource Efficiency with Agrilogy Sensors
+                  Optimizing Irrigation Processes and Resource Efficiency with
+                  Agrilogy Sensors
                 </Heading>
                 <Text>
-                  For the success of the irrigation process without wasting resources and water, Agrilogy sensors
-                  monitor soil changes and development, providing important information for successful agriculture.
+                  For the success of the irrigation process without wasting
+                  resources and water, Agrilogy sensors monitor soil changes and
+                  development, providing important information for successful
+                  agriculture.
                 </Text>
                 <Text>
-                  <strong>Features:</strong> Better management of water and effective management of fertilizers.
+                  <strong>Features:</strong> Better management of water and
+                  effective management of fertilizers.
                 </Text>
                 <Text fontWeight="semibold" color="green.600">
                   Some Photos:
@@ -353,65 +861,23 @@ export default function AgrilogyLanding() {
 
       {/* Contact Section */}
       <Box id="contact" py={20} bg={useColorModeValue("green.50", "gray.800")}>
-        <Container maxW="4xl">
-          <VStack spacing={8}>
-            <Heading size="xl" color="green.600" textAlign="center">
-              Contact Us
-            </Heading>
-
-            <Text textAlign="center" fontSize="lg">
-              Do you have any questions about our projects, products, services or our site in general? Do you have any
-              comments or ideas you would like to share with us? Please send us a message. We&apos;d love to hear from you!
-            </Text>
-
-            <Card bg={cardBg} borderColor="green.200" borderWidth="1px" w="100%">
-              <CardBody>
-                <Stack spacing={4}>
-                  <SimpleGrid columns={{ base: 1, md: 2 }} spacing={4}>
-                    <FormControl>
-                      <FormLabel color="green.600">Nom</FormLabel>
-                      <Input placeholder="Nom" borderColor="green.200" _focus={{ borderColor: "green.500" }} />
-                    </FormControl>
-                    <FormControl>
-                      <FormLabel color="green.600">Prénom</FormLabel>
-                      <Input placeholder="Prénom" borderColor="green.200" _focus={{ borderColor: "green.500" }} />
-                    </FormControl>
-                  </SimpleGrid>
-
-                  <FormControl>
-                    <FormLabel color="green.600">Email</FormLabel>
-                    <Input
-                      type="email"
-                      placeholder="Email"
-                      borderColor="green.200"
-                      _focus={{ borderColor: "green.500" }}
-                    />
-                  </FormControl>
-
-                  <FormControl>
-                    <FormLabel color="green.600">Message</FormLabel>
-                    <Textarea
-                      placeholder="Message..."
-                      rows={4}
-                      borderColor="green.200"
-                      _focus={{ borderColor: "green.500" }}
-                    />
-                  </FormControl>
-
-                  <Button colorScheme="green" size="lg" w="100%">
-                    Send
-                  </Button>
-                </Stack>
-              </CardBody>
-            </Card>
-          </VStack>
-        </Container>
+        <ContactSection />
       </Box>
 
       {/* Footer */}
-      <Box as="footer" bg={useColorModeValue("gray.800", "gray.900")} color="white" py={8}>
+      <Box
+        as="footer"
+        bg={useColorModeValue("gray.800", "gray.900")}
+        color="white"
+        py={8}
+      >
         <Container maxW="6xl">
-          <Flex justify="space-between" align="center" direction={{ base: "column", md: "row" }} gap={4}>
+          <Flex
+            justify="space-between"
+            align="center"
+            direction={{ base: "column", md: "row" }}
+            gap={4}
+          >
             <Text>
               Copyright ©{" "}
               <Text as="span" color="green.400" fontWeight="semibold">
@@ -420,22 +886,54 @@ export default function AgrilogyLanding() {
             </Text>
 
             <HStack spacing={4}>
-              <Link href="https://web.facebook.com/p/AgriLogy-100087042591029/" isExternal>
-                <Icon as={FaFacebook} boxSize={6} color="green.400" _hover={{ color: "green.300" }} />
+              <Link
+                href="https://web.facebook.com/p/AgriLogy-100087042591029/"
+                isExternal
+              >
+                <Icon
+                  as={FaFacebook}
+                  boxSize={6}
+                  color="green.400"
+                  _hover={{ color: "green.300" }}
+                />
               </Link>
-              <Link href="https://www.instagram.com/agrilogy_officiel/" isExternal>
-                <Icon as={FaInstagram} boxSize={6} color="green.400" _hover={{ color: "green.300" }} />
+              <Link
+                href="https://www.instagram.com/agrilogy_officiel/"
+                isExternal
+              >
+                <Icon
+                  as={FaInstagram}
+                  boxSize={6}
+                  color="green.400"
+                  _hover={{ color: "green.300" }}
+                />
               </Link>
-              <Link href="https://wa.me/message/PGWD3K6AFXWXO1?src=qr" isExternal>
-                <Icon as={FaWhatsapp} boxSize={6} color="green.400" _hover={{ color: "green.300" }} />
+              <Link
+                href="https://wa.me/message/PGWD3K6AFXWXO1?src=qr"
+                isExternal
+              >
+                <Icon
+                  as={FaWhatsapp}
+                  boxSize={6}
+                  color="green.400"
+                  _hover={{ color: "green.300" }}
+                />
               </Link>
-              <Link href="https://www.linkedin.com/company/agrilogy/" isExternal>
-                <Icon as={FaLinkedin} boxSize={6} color="green.400" _hover={{ color: "green.300" }} />
+              <Link
+                href="https://www.linkedin.com/company/agrilogy/"
+                isExternal
+              >
+                <Icon
+                  as={FaLinkedin}
+                  boxSize={6}
+                  color="green.400"
+                  _hover={{ color: "green.300" }}
+                />
               </Link>
             </HStack>
           </Flex>
         </Container>
       </Box>
     </Box>
-  )
+  );
 }
