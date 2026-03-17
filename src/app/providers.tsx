@@ -13,20 +13,33 @@ const theme = extendTheme({
   colors: {
     green: {
       50: "#f0fff4",
-      100: "#c6f6d5",
-      200: "#9ae6b4",
-      300: "#68d391",
-      400: "#48bb78",
-      500: "#38a169",
-      600: "#2f855a",
-      700: "#276749",
-      800: "#22543d",
-      900: "#1a202c",
+      100: "#dcfce7",
+      200: "#bbf7d0",
+      300: "#86efac",
+      400: "#4ade80",
+      500: "#22c55e",
+      600: "#16a34a",
+      700: "#15803d",
+      800: "#166534",
+      900: "#14532d",
     },
   },
   fonts: {
-    heading: "system-ui, sans-serif",
-    body: "system-ui, sans-serif",
+    heading: "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+    body: "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+  },
+  styles: {
+    global: {
+      "h1, h2, h3, h4": { letterSpacing: "-0.02em" },
+    },
+  },
+  radii: {
+    card: "1rem",
+    button: "0.75rem",
+  },
+  shadows: {
+    card: "0 1px 3px 0 rgba(0, 0, 0, 0.06), 0 1px 2px -1px rgba(0, 0, 0, 0.06)",
+    "card-hover": "0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.06)",
   },
 })
 
