@@ -1,36 +1,77 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Agrilogy Landing Page
 
-## Getting Started
+Marketing site for **AgriLogy** — smart agriculture (IoT irrigation, precision farming, analytics).
 
-First, run the development server:
+## Stack
+
+- [Next.js 15](https://nextjs.org/) (App Router)
+- [Chakra UI](https://chakra-ui.com/)
+- [Swiper](https://swiperjs.com/) (hero & partners)
+- [EmailJS](https://www.emailjs.com/) (contact form)
+
+## Package manager: npm **or** Yarn
+
+Use **one** manager per clone and **commit its lockfile** (`package-lock.json` for npm, or `yarn.lock` for Yarn). Don’t mix them in the same repo without a reason.
+
+### With npm
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### With Yarn (classic v1)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+yarn install
+yarn dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+`yarn <script>` runs the same scripts as `npm run <script>` (e.g. `yarn build`, `yarn lint`).
 
-## Learn More
+### If install fails (`ENOTEMPTY`, broken `node_modules`)
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+rm -rf node_modules
+# remove the lockfile for the tool you use:
+rm -f package-lock.json   # npm
+# rm -f yarn.lock         # yarn
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+npm cache clean --force   # npm
+# yarn cache clean        # yarn
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+npm install   # or: yarn install
+```
 
-## Deploy on Vercel
+## Environment (optional)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+cp .env.example .env.local
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Set `NEXT_PUBLIC_SITE_URL` to your production URL for metadata / Open Graph.
+
+## Scripts
+
+| Script       | npm                    | Yarn                |
+| ------------ | ---------------------- | ------------------- |
+| Dev server   | `npm run dev`          | `yarn dev`          |
+| Build        | `npm run build`        | `yarn build`        |
+| Start (prod) | `npm run start`        | `yarn start`        |
+| Lint         | `npm run lint`         | `yarn lint`         |
+| Format       | `npm run format`       | `yarn format`       |
+| Format check | `npm run format:check` | `yarn format:check` |
+
+After install, **Husky** runs `prepare` and sets up Git hooks. On commit, **lint-staged** runs Prettier + ESLint on staged files.
+
+## Project layout
+
+- `src/app/page.tsx` — main landing page
+- `src/app/components/ContactSection.tsx` — contact form & details
+- `src/app/providers.tsx` — Chakra theme
+- `public/img` — images
+- `public/partners` — partner logos
+
+## Deploy
+
+Build with `npm run build` or `yarn build`, then host on Vercel, Netlify, or any Node/static host. Set the same env vars on the host.
