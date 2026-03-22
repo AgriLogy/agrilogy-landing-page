@@ -1,13 +1,12 @@
-// app/providers.tsx
-'use client'
+"use client";
 
-import { ChakraProvider, extendTheme, ThemeConfig } from '@chakra-ui/react'
-
+import { ChakraProvider, extendTheme, ThemeConfig } from "@chakra-ui/react";
 
 const config: ThemeConfig = {
   initialColorMode: "light",
   useSystemColorMode: false,
-}
+};
+
 const theme = extendTheme({
   config,
   colors: {
@@ -41,8 +40,8 @@ const theme = extendTheme({
     card: "0 1px 3px 0 rgba(0, 0, 0, 0.06), 0 1px 2px -1px rgba(0, 0, 0, 0.06)",
     "card-hover": "0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.06)",
   },
-})
+});
 
 export function Providers({ children }: { children: React.ReactNode }) {
-  return <ChakraProvider theme={theme} >{children}</ChakraProvider>
+  return <ChakraProvider theme={theme}>{children}</ChakraProvider>;
 }
